@@ -83,3 +83,11 @@ def stock_lvma():
 def stock_lvmh():
     lvmh = yf.Ticker("RI.PA")
     return (lvmh.info.get('currentPrice'))
+
+def stock_capgemini():
+    capgemini = yf.Ticker("CAP.PA")
+    return (capgemini.info.get('currentPrice'))
+
+def stock_tesla():
+    tesla = yf.Ticker("TSLA")
+    return (tesla.info.get('currentPrice'))

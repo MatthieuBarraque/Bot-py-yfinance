@@ -156,3 +156,39 @@ async def atos(ctx):
     except :
         await ctx.send("erreur de connection")
         print('erreur de connection at :', time.strftime("%H:%M:%S", time.localtime()),'date :', time.strftime("%d/%m/%Y", time.localtime()))
+
+@bot.command(name='saint_gobain')
+async def saint_gobain(ctx):
+    try :
+        stock_value = stock_saint_gobain()
+        embed = discord.Embed(title="Action Saint Gobain", description=f"La Valeurs Actuelle de Saint Gobain est de: **{stock_value} $**", color=discord.Color.blue())
+        embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Saint-Gobain_Logo.svg/1200px-Saint-Gobain_Logo.svg.png")
+        await ctx.send(embed=embed)
+        print('User sent showme at :', time.strftime("%H:%M:%S", time.localtime()),'date :', time.strftime("%d/%m/%Y", time.localtime()))    
+    except :
+        await ctx.send("erreur de connection")
+        print('erreur de connection at :', time.strftime("%H:%M:%S", time.localtime()),'date :', time.strftime("%d/%m/%Y", time.localtime()))
+
+@bot.command(name='schneider_electric')
+async def schneider_electric(ctx):
+    try :
+        stock_value = stock_schneider_electric()
+        embed = discord.Embed(title="Action Schneider Electric", description=f"La Valeurs Actuelle de Schneider Electric est de: **{stock_value} $**", color=discord.Color.blue())
+        embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Schneider_Electric_logo.svg/1200px-Schneider_Electric_logo.svg.png")
+        await ctx.send(embed=embed)
+        print('User sent showme at :', time.strftime("%H:%M:%S", time.localtime()),'date :', time.strftime("%d/%m/%Y", time.localtime()))    
+    except :
+        await ctx.send("erreur de connection")
+        print('erreur de connection at :', time.strftime("%H:%M:%S", time.localtime()),'date :', time.strftime("%d/%m/%Y", time.localtime()))
+
+@bot.command(name='tesla')
+async def tesla(ctx):
+    try :
+        stock_value = stock_tesla()
+        embed = discord.Embed(title="Action Tesla", description=f"La Valeurs Actuelle de Tesla est de: **{stock_value} $**", color=discord.Color.blue())
+        embed.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/1200px-Tesla_Motors.svg.png")
+        await ctx.send(embed=embed)
+        print('User sent showme at :', time.strftime("%H:%M:%S", time.localtime()),'date :', time.strftime("%d/%m/%Y", time.localtime()))    
+    except :
+        await ctx.send("erreur de connection")
+        print('erreur de connection at :', time.strftime("%H:%M:%S", time.localtime()),'date :', time.strftime("%d/%m/%Y", time.localtime()))

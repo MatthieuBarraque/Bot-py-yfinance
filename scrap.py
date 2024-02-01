@@ -1,38 +1,16 @@
 from include import *
 from datetime import datetime
 
-stocks = {
-  "airbus": "AIR.PA",
-  "amundi": "AMUN.PA",
-  "alstom": "ALO.PA",
-  "atos": "ATO.PA",
-  "bouygues": "EN.PA",
-  "bnp_paribas": "BNP.PA",
-  "capgemini": "CAP.PA",
-  "credit_agricole": "ACA.PA",
-  "dassault_systemes": "DSY.PA",
-  "essilorluxottica": "EL.PA",
-  "kering": "KER.PA",
-  "l'oreal": "OR.PA",
-  "orange": "ORAN",
-  "renault": "RNO.PA",
-  "societe_generale": "GLE.PA",
-  "sanofi": "SAN.PA",
-  "schneider_electric": "SU.PA",
-  "saint_gobain": "SGO.PA",
-  "totalenergies": "TTE.PA",
-  "vinci": "DG.PA",
-  "vivendi": "VIV.PA",
-}
-
-@bot.command()
+@bot.command(name="scrap")
 async def scrap(ctx, arg):
     try:
         if arg.lower() in stocks:
             stock_id = stocks[arg.lower()]
-            stock_info = yf.Ticker(stock_id)
 
             for _ in range(60):  # Répéter 60 fois
+                # Créer un nouvel objet stock_info à chaque itération
+                stock_info = yf.Ticker(stock_id)
+
                 # Récupérer les informations
                 stock_value = stock_info.info['currentPrice']
                 closing_time = stock_info.info['regularMarketPreviousClose']
@@ -51,6 +29,8 @@ async def scrap(ctx, arg):
 
                 embed.add_field(name='Plus haut de la journée 📈', value=f'**{daily_high:.2f} €**')
                 embed.add_field(name='Plus bas de la journée 📉', value=f'**{daily_low:.2f} €**')
+                embed.add_field(name='Volume Actuelle achat 💲', value=f'**{stock_info.info["regularMarketVolume"]:.0f}**')
+                embed.add_field(name='Volume Actuelle vente 💲', value=f'**{stock_info.info["regularMarketVolume"]:.0f}**')
 
                 # Ajout d'un footer avec la date et l'heure actuelles
                 embed.set_footer(text=f'Mis à jour le {datetime.now().strftime("%d/%m/%Y à %H:%M")}')
