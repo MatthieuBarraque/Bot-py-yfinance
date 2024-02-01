@@ -4,6 +4,17 @@ from datetime import datetime
 @bot.command(name="scrap")
 async def scrap(ctx, arg):
     try:
+        if arg is None:
+            await ctx.send("Vous n'avez pas rentrer les bonnes informations")
+            await ctx.send("La commande est : /scrap <action>")
+
+        if arg.lower() not in stocks:
+            await ctx.send("L'action rentrez en parametre n'est pas enregistrez dans notre BDD")
+            await ctx.send("La commande est : /scrap <action>")
+            print("L'utilisateur a rentrez une action qui n'est pas dans notre BDD")
+            print("Le user est : " + str(ctx.author) + " et le serveur est : " + str(ctx.guild))
+            return
+
         if arg.lower() in stocks:
             stock_id = stocks[arg.lower()]
 

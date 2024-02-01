@@ -10,6 +10,17 @@ from config_stock import stocks
 
 @bot.command(name='graph')
 async def stock(ctx, arg):
+  if arg is None:
+    await ctx.send("Vous n'avez pas rentrer les bonnes informations")
+    await ctx.send("La commande est : /graph <action>")
+
+  if arg.lower() not in stocks:
+    await ctx.send("L'action rentrez en parametre n'est pas enregistrez dans notre BDD")
+    await ctx.send("La commande est : /graph <action>")
+    print("L'utilisateur a rentrez une action qui n'est pas dans notre BDD")
+    print("Le user est : " + str(ctx.author) + " et le serveur est : " + str(ctx.guild))
+    return
+
   try:
     if arg.lower() in stocks:
       stock_id = stocks[arg.lower()]
@@ -73,6 +84,7 @@ async def stock(ctx, arg):
     else:
       await ctx.send("Cette action n'est pas prise en charge.")
   except Exception as e:
-    await ctx.send("erreur de connection")
+    await ctx.send("une erreur est survenue !")
+    await ctx.send("Vérifier que vous avez bien entrer les bonnes informations")
     print('erreur de connection at :', time.strftime("%H:%M:%S", time.localtime()), 'date :', time.strftime("%d/%m/%Y", time.localtime()))
     print(f'Exception: {e}')
