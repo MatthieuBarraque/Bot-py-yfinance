@@ -17,6 +17,7 @@ async def on_ready():
         embed.add_field(name="📊 Stock", value="Pour voir les commandes associez au cac40, tapez `/cac40`", inline=False)
         embed.add_field(name="📈 Graph", value="Pour voir les graphiques associez au cac40, tapez `/graph`", inline=False)
         embed.add_field(name="⌚ Scrap", value="Pour voir les informations associez au action du cac40, tapez `/scrap`", inline=False)
+        embed.add_field(name="💲 add", value="Permet a l'utilisateur des placement boursier avec le nombre d'action acheter(arg1) ainsi que la date d'achat(arg2) et le prix d'achat(arg3)", inline=False)
 
         await target_channel.send(embed=embed)
     else:

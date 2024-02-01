@@ -22,3 +22,5 @@ from stock import *
 from command_bot import orange
 from graph import *
 from scrap import *
+from config_stock import stocks
+from add import *
