@@ -3,6 +3,7 @@ from include import *
 
 bot.remove_command('help')
 
+
 @bot.event
 async def on_ready():
     start_print()

@@ -1,8 +1,11 @@
-from include import *
 from newsapi import NewsApiClient
+from discord import Embed
 import requests
 from datetime import datetime, timedelta
 import json
+
+from include import bot, API
+
 
 @bot.command(name="news")
 async def news(ctx, arg1=None):
@@ -42,7 +45,7 @@ async def news(ctx, arg1=None):
     sorted_articles = sorted(articles_with_titles.items(), key=lambda item: item[1]['publishedAt'], reverse=True)[:10]
 
     for i, (title, article_info) in enumerate(sorted_articles, 1):
-        embed = discord.Embed(title=f"{i}. {title}", description=article_info['description'], url=article_info['url'], color=0x3498db)
+        embed = Embed(title=f"{i}. {title}", description=article_info['description'], url=article_info['url'], color=0x3498db)
         embed.set_footer(text=f"Source: {article_info['source']}, Published at: {article_info['publishedAt']}")
         await ctx.send(embed=embed)
         print("L'utilisateur" + str(ctx.author) + " a demandé les actualités sur " + query + '.')

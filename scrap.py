@@ -2,7 +2,10 @@ from datetime import datetime
 import time
 
 from asyncio import sleep
-from include import *
+from discord import Embed
+
+from include import bot, stocks, yf
+
 
 @bot.command(name="scrap")
 async def scrap(ctx, arg):
