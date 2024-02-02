@@ -1,31 +1,27 @@
 from datetime import datetime
+import time
 
 from asyncio import sleep
-from discord import Embed
-from yfinance import yf
-
-from config_stock import stocks
-from bot_module import bot
-
+from include import *
 
 @bot.command(name="scrap")
 async def scrap(ctx, arg):
-    try:
-        if arg is None:
-            await ctx.send("Vous n'avez pas rentrer les bonnes informations")
-            await ctx.send("La commande est : /scrap <action>")
+    if arg is None:
+        await ctx.send("Vous n'avez pas rentrer les bonnes informations")
+        await ctx.send("La commande est : /scrap <action>")
 
-        if arg.lower() not in stocks:
-            await ctx.send("L'action rentrez en parametre n'est pas enregistrez dans notre BDD")
-            await ctx.send("La commande est : /scrap <action>")
-            print("L'utilisateur a rentrez une action qui n'est pas dans notre BDD")
-            print("Le user est : " + str(ctx.author) + " et le serveur est : " + str(ctx.guild))
-            return
+    if arg.lower() not in stocks:
+        await ctx.send("L'action rentrez en parametre n'est pas enregistrez dans notre BDD")
+        await ctx.send("La commande est : /scrap <action>")
+        print("L'utilisateur a rentrez une action qui n'est pas dans notre BDD")
+        print("Le user est : " + str(ctx.author) + " et le serveur est : " + str(ctx.guild))
+        return
 
-        if arg.lower() in stocks:
-            stock_id = stocks[arg.lower()]
+    if arg.lower() in stocks:
+        stock_id = stocks[arg.lower()]
 
-            for _ in range(60):  # Répéter 60 fois
+        for _ in range(60):  # Répéter 60 fois
+            try:
                 # Créer un nouvel objet stock_info à chaque itération
                 stock_info = yf.Ticker(stock_id)
 
@@ -41,7 +37,7 @@ async def scrap(ctx, arg):
                 embed.add_field(name='Cours actuel 📊', value=f'**{stock_value:.2f} €**')
 
                 # Formatage de l'heure de clôture
-                closing_time_formatted = datetime.fromtimestamp(closing_time).strftime('%H:%M')
+                closing_time_formatted = time.ctime(closing_time)
 
                 embed.add_field(name='Heure de clôture ⏰', value=closing_time_formatted)
 
@@ -51,7 +47,7 @@ async def scrap(ctx, arg):
                 embed.add_field(name='Volume Actuelle vente 💲', value=f'**{stock_info.info["regularMarketVolume"]:.0f}**')
 
                 # Ajout d'un footer avec la date et l'heure actuelles
-                embed.set_footer(text=f'Mis à jour le {datetime.now().strftime("%d/%m/%Y à %H:%M")}')
+                embed.set_footer(text=f'Mis à jour le {datetime.datetime.now().strftime("%d/%m/%Y à %H:%M")}')
 
                 # Envoyer l'embed
                 await ctx.send(embed=embed)
@@ -62,8 +58,8 @@ async def scrap(ctx, arg):
                 print("L'utilisateur a demandé les informations sur", arg.capitalize() + '.')
                 print("l'utilisateur est sur le channel", ctx.channel.name + '.')
 
-                print(f'[{datetime.now().strftime("%H:%M:%S")}] {arg.capitalize()} : {stock_value:.2f} €')
+                print(f'[{datetime.datetime.now().strftime("%H:%M:%S")}] {arg.capitalize()} : {stock_value:.2f} €')
 
-    except Exception as e:
-        print("error")
-        print(e)
+            except Exception as e:
+                print("error")
+                print(e)
