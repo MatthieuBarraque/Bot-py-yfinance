@@ -1,6 +1,6 @@
-from include import *
+from discord import Intents
 
-intents = discord.Intents.default()
+intents = Intents.default()
 intents.all()
 intents.message_content = True
 intents.messages = True

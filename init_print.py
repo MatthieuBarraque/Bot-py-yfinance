@@ -1,6 +1,4 @@
 import time
-from config import TOKEN, CHANEL
-from intents import intents
 
 from bot_module import bot
 
@@ -14,4 +12,3 @@ def start_print():
     print('Connecté avec :' + str(len(set(bot.get_all_members()))) + ' membres')
     print('------------------')
     print('heure :', time.strftime("%H:%M:%S", time.localtime()))
- 

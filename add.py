@@ -1,7 +1,8 @@
 # Ouais leo si tu passe part la faut de la gestion d'erreurs
-from include import *
+from include import bot, yf, discord
 from config_stock import stocks
 from datetime import datetime
+
 
 @bot.command(name='add', help='Add two numbers')
 async def add(ctx, arg1=None, arg2=None, arg3=None):
@@ -60,8 +61,7 @@ async def add(ctx, arg1=None, arg2=None, arg3=None):
             await ctx.send(embed=embed)
             print("L'utilsateur a bien ajouter un placement boursier !")
             print("Le user est : " + str(ctx.author) + " et le serveur est : " + str(ctx.guild))
-        
-        else :
+        else:
             await ctx.send("L'action rentrez en parametre n'est pas enregistrez dans notre BDD ou les informations sont peut etre éroner")
             await ctx.send("La commande est : /add <action> <nombre d'action> <date d'achat>")
             print("L'utilisateur a rentrez une action qui n'est pas dans notre BDD")
@@ -75,6 +75,3 @@ async def add(ctx, arg1=None, arg2=None, arg3=None):
         await ctx.send("La commande est : /add <action> <nombre d'action> <date d'achat>")
         print("error")
         print(e)
-
-
-    

@@ -1,5 +1,12 @@
-from include import *
 from datetime import datetime
+
+from asyncio import sleep
+from discord import Embed
+from yfinance import yf
+
+from config_stock import stocks
+from bot_module import bot
+
 
 @bot.command(name="scrap")
 async def scrap(ctx, arg):
@@ -28,7 +35,7 @@ async def scrap(ctx, arg):
                 daily_high = stock_info.info['dayHigh']
                 daily_low = stock_info.info['dayLow']
 
-                embed = discord.Embed(title=f'Informations sur {arg.capitalize()}', color=0x2ecc71 if stock_value >= daily_low else 0xe74c3c)
+                embed = Embed(title=f'Informations sur {arg.capitalize()}', color=0x2ecc71 if stock_value >= daily_low else 0xe74c3c)
 
                 # Utilisation d'emojis pour rendre l'affichage plus visuel
                 embed.add_field(name='Cours actuel 📊', value=f'**{stock_value:.2f} €**')
@@ -50,11 +57,11 @@ async def scrap(ctx, arg):
                 await ctx.send(embed=embed)
 
                 # Attendre 5 secondes avant de répéter
-                await asyncio.sleep(5)
+                await sleep(5)
 
-                print(f"L'utilisateur a demandé les informations sur", arg.capitalize() + '.')
+                print("L'utilisateur a demandé les informations sur", arg.capitalize() + '.')
                 print("l'utilisateur est sur le channel", ctx.channel.name + '.')
-                      
+
                 print(f'[{datetime.now().strftime("%H:%M:%S")}] {arg.capitalize()} : {stock_value:.2f} €')
 
     except Exception as e:
