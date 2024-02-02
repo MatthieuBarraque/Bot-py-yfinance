@@ -1,6 +1,4 @@
-# Ouais leo si tu passe part la faut de la gestion d'erreurs
-from include import bot, yf, discord
-from config_stock import stocks
+from include import *
 from datetime import datetime
 
 

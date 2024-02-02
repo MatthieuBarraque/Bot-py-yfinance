@@ -1,12 +1,7 @@
 from discord import Embed, Color
-
-from init_print import start_print
-from bot_module import bot
-from config import TOKEN, CHANEL
-from stock import *
+from include import *
 
 bot.remove_command('help')
-
 
 @bot.event
 async def on_ready():
@@ -23,7 +18,7 @@ async def on_ready():
         embed.add_field(name="📊 Stock", value="Pour voir les commandes associez au cac40, tapez `/cac40`", inline=False)
         embed.add_field(name="📈 Graph", value="Pour voir les graphiques associez au cac40, tapez `/graph`", inline=False)
         embed.add_field(name="⌚ Scrap", value="Pour voir les informations associez au action du cac40, tapez `/scrap`", inline=False)
-        embed.add_field(name="💲 add", value="Permet a l'utilisateur des placement boursier avec le nombre d'action acheter(arg1) ainsi que la date d'achat(arg2) et le prix d'achat(arg3)", inline=False)
+        embed.add_field(name="💲 add", value="Permet a l'utilisateur des placement boursier avec le nombre d'action acheter(arg1) ainsi que la date d'achat(arg2) et la date en format 12/12/1212 (arg3), tapez '/add'", inline=False)
 
         await target_channel.send(embed=embed)
     else:
@@ -76,5 +71,8 @@ async def commands(ctx):
     else:
         print(f"Could not find channel with ID {target_channel_id}")
         await ctx.send("error, try again")
+
+
+bot.load_extension("add")
 
 bot.run(TOKEN)
