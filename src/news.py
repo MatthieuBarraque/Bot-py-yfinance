@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+"""
+news.py:
+    news function give news articles given a subject
+"""
+
 from datetime import datetime, timedelta
 import requests
 

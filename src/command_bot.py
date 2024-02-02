@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+"""
+command_bot.py
+    
+"""
+
 from time import localtime, strftime, localtime
 
 from discord import Embed, Color

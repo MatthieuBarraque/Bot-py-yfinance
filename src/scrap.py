@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+"""
+scrap.py:
+    scrap function give informations about a stock
+"""
+
 from datetime import datetime
 import time
 

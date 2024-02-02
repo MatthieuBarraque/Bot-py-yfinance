@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+"""
+include.py:
+    This file contains all the modules used in the bot
+"""
+
 import discord
 from discord.ext import commands
 from discord.ext.commands import Bot

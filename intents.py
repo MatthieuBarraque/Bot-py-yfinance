@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+"""
+intents.py:
+    This file contains the configuration information for the bot
+"""
+
 from discord import Intents
 
 intents = Intents.default()

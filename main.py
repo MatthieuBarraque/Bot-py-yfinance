@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+"""
+main.py:
+    Main file of the bot
+"""
+
 from discord import Embed, Color
 from include import *
 

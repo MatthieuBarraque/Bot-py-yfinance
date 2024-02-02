@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+"""
+stock.py:
+    This file contains the stock function for the stocks
+"""
+
 import yfinance as yf
 
 

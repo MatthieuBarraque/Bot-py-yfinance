@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+"""
+add.py
+    
+"""
+
 from datetime import datetime
 
 from include import bot, yf, discord

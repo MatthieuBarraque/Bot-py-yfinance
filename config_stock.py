@@ -1,6 +1,12 @@
+#!/usr/bin/env python
+
 from include import *
 
-# Liste des identifiants d'actions
+"""
+config_stock.py:
+    This file gives the ID of the stock given the name of the stock
+"""
+
 stocks = {
     "airbus": "AIR.PA",      # CAC40
     "amundi": "AMUN.PA",

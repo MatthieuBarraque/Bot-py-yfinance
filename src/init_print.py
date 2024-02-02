@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+"""
+init_print.py
+    start_print print some information at the launch of the bot
+"""
+
 import time
 
 from bot_module import bot

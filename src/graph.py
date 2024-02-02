@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+"""
+graph.py:
+    Render a graph of the stock
+"""
+
 import io
 import datetime
 
