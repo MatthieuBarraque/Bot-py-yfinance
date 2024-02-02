@@ -3,7 +3,7 @@ from time import localtime, strftime, localtime
 from discord import Embed, Color
 
 from bot_module import bot
-from stock import *
+from src.stock import *
 
 
 # affiche le cours de orange

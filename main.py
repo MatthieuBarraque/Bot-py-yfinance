@@ -10,7 +10,7 @@ async def on_ready():
     target_channel_id = CHANEL
     target_channel = bot.get_channel(target_channel_id)
     if target_channel:
-        await target_channel.send('Stcok Bot est en ligne !')
+        await target_channel.send('StockBot Bot est en ligne !')
 
         # Message de bienvenue du bot
         embed = Embed(title="Salut C'est moi StockBot !", description="Je suis la pour fournir des info sur stock market Voici quelques commandes utiles", color=Color.red())
