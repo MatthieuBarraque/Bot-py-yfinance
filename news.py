@@ -1,8 +1,7 @@
-from newsapi import NewsApiClient
-from discord import Embed
-import requests
 from datetime import datetime, timedelta
-import json
+import requests
+
+from discord import Embed
 
 from include import bot, API
 

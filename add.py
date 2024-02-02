@@ -1,5 +1,7 @@
-from include import *
 from datetime import datetime
+
+from include import bot, yf, discord
+from config_stock import stocks
 
 
 @bot.command(name='add', help='Add two numbers')

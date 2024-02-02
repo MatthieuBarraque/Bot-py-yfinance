@@ -1,11 +1,13 @@
-from include import bot, time
+import io
+import datetime
+
 import yfinance as yf
 import matplotlib.pyplot as plt
-import io
 import discord
 import numpy as np
-import datetime
+
 from config_stock import stocks
+from include import bot, time
 
 
 @bot.command(name="graph")
