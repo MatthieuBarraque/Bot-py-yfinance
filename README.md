@@ -1,6 +1,6 @@
-# BOT STOCK
+# BOT STOCK 
 
-Ouais leo il reste de la gestion d'erreurs et du coding style, tu peux améliorer l'ensemble du repo et ajouter tes flag mon khey, et kiff
+#MAIN COLLABORATEURS LEOPC 🤝
 
 ## Description
 
